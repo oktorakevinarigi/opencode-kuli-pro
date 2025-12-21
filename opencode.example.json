@@ -12,38 +12,46 @@
       "models": {
         "gemini-3-pro-high": {
           "name": "Gemini 3 Pro High (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
-        },
-        "gemini-3-pro-low": {
-          "name": "Gemini 3 Pro Low (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "options": {
+            "reasoningEffort": "high"
+          },
+          "limit": { "context": 1048576, "output": 65535 }
         },
         "gemini-3-flash": {
           "name": "Gemini 3 Flash (Antigravity)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
-        },
+          "limit": { "context": 1048576, "output": 65536 }
+        }
+      }
+    },
+    "anthropic": {
+      "models": {
         "claude-sonnet-4-5": {
-          "name": "Claude Sonnet 4.5 (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
-        },
-        "claude-sonnet-4-5-thinking": {
-          "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "name": "Claude Sonnet 4.5",
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 16000
+            }
+          }
         },
         "claude-opus-4-5-thinking": {
-          "name": "Claude Opus 4.5 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
-        },
-        "gpt-oss-120b-medium": {
-          "name": "GPT-OSS 120B Medium (Antigravity)",
-          "limit": { "context": 131072, "output": 32768 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "name": "Claude Opus 4.5 (High Reasoning)",
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 32000
+            }
+          }
+        }
+      }
+    },
+    "openai": {
+      "models": {
+        "gpt-5": {
+          "options": {
+            "reasoningEffort": "high",
+            "textVerbosity": "low"
+          }
         }
       }
     }
@@ -53,23 +61,11 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "enabled": true,
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      }
+      "headers": { "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}" }
     },
-    "Prisma-Local": {
+    "shannon-thinking": {
       "type": "local",
-      "command": ["npx", "-y", "prisma", "mcp"],
-      "enabled": true
-    },
-    "Prisma-Remote": {
-      "type": "local",
-      "command": ["npx", "-y", "mcp-remote", "https://mcp.prisma.io/mcp"],
-      "enabled": false
-    },
-    "sequential-thinking": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "command": ["npx", "-y", "server-shannon-thinking@latest"],
       "enabled": true
     },
     "sequential-thinking-ultra": {
@@ -89,9 +85,7 @@
       "type": "local",
       "command": ["node", "/YOUR_PATH_TO/opencode/mcp/mcp-reasoner/dist/index.js"],
       "enabled": true,
-      "environment": {
-        "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}"
-      }
+      "environment": { "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}" }
     },
     "clear-thought": {
       "type": "local",
@@ -103,41 +97,11 @@
       "command": ["node", "/YOUR_PATH_TO/opencode/mcp/atom-of-thoughts/build/index.js"],
       "enabled": true
     },
-    "ref-mcp": {
-      "type": "remote",
-      "url": "https://api.ref.tools/mcp?apiKey={env:REF_API_KEY}",
-      "enabled": true
-    },
-    "next-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "next-devtools-mcp@latest"],
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "@playwright/mcp@latest"],
-      "enabled": true
-    },
     "exa": {
       "type": "remote",
       "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,get_code_context_exa,crawling_exa,company_research_exa,linkedin_search_exa,deep_researcher_start,deep_researcher_check",
       "enabled": true,
-      "headers": {
-        "EXA_API_KEY": "{env:EXA_API_KEY}"
-      }
-    },
-    "websets": {
-      "type": "remote",
-      "url": "https://websetsmcp.exa.ai/mcp?exaApiKey={env:EXA_API_KEY}",
-      "enabled": true
-    },
-    "shannon-thinking": {
-      "type": "local",
-      "command": ["npx", "-y", "server-shannon-thinking@latest"],
-      "enabled": true
+      "headers": { "EXA_API_KEY": "{env:EXA_API_KEY}" }
     }
-  },
-  "tools": {
-    "exa": true
   }
 }
