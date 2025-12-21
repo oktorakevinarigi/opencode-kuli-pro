@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "google/gemini-3-pro-high",
   "plugin": [
     "oh-my-opencode",
     "./plugin/superpowers.js",
@@ -13,38 +14,122 @@
       "models": {
         "gemini-3-pro-high": {
           "name": "Gemini 3 Pro High (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "gemini-3-pro-low": {
           "name": "Gemini 3 Pro Low (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "gemini-3-flash": {
           "name": "Gemini 3 Flash (Antigravity)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5 (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "claude-sonnet-4-5-thinking": {
           "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "claude-opus-4-5-thinking": {
           "name": "Claude Opus 4.5 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "gpt-oss-120b-medium": {
           "name": "GPT-OSS 120B Medium (Antigravity)",
-          "limit": { "context": 131072, "output": 32768 },
-          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         }
       }
     }
@@ -54,16 +139,25 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "enabled": true,
-      "headers": { "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}" }
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
     },
     "shannon-thinking": {
       "type": "local",
-      "command": ["npx", "-y", "server-shannon-thinking@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "server-shannon-thinking@latest"
+      ],
       "enabled": true
     },
     "sequential-thinking-ultra": {
       "type": "local",
-      "command": ["node", "/YOUR_PATH_TO/opencode/mcp/sequential-thinking-ultra/dist/index.js"],
+      "command": [
+        "node",
+        "/YOUR_PATH_TO/opencode/mcp/sequential-thinking-ultra/dist/index.js"
+      ],
       "enabled": true,
       "environment": {
         "ULTRA_THINK_AUTO_LABEL": "true",
@@ -76,25 +170,38 @@
     },
     "mcp-reasoner": {
       "type": "local",
-      "command": ["node", "/YOUR_PATH_TO/opencode/mcp/mcp-reasoner/dist/index.js"],
+      "command": [
+        "node",
+        "/YOUR_PATH_TO/opencode/mcp/mcp-reasoner/dist/index.js"
+      ],
       "enabled": true,
-      "environment": { "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}" }
+      "environment": {
+        "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}"
+      }
     },
     "clear-thought": {
       "type": "local",
-      "command": ["node", "/YOUR_PATH_TO/opencode/mcp/clear-thought-mcp-server/dist/index.js"],
+      "command": [
+        "node",
+        "/YOUR_PATH_TO/opencode/mcp/clear-thought-mcp-server/dist/index.js"
+      ],
       "enabled": true
     },
     "atom-of-thoughts": {
       "type": "local",
-      "command": ["node", "/YOUR_PATH_TO/opencode/mcp/atom-of-thoughts/build/index.js"],
+      "command": [
+        "node",
+        "/YOUR_PATH_TO/opencode/mcp/atom-of-thoughts/build/index.js"
+      ],
       "enabled": true
     },
     "exa": {
       "type": "remote",
       "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,get_code_context_exa,crawling_exa,company_research_exa,linkedin_search_exa,deep_researcher_start,deep_researcher_check",
       "enabled": true,
-      "headers": { "EXA_API_KEY": "{env:EXA_API_KEY}" }
+      "headers": {
+        "EXA_API_KEY": "{env:EXA_API_KEY}"
+      }
     }
   }
 }
