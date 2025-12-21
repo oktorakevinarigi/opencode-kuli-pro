@@ -1,0 +1,27 @@
+# ================================
+# Credentials & Secrets
+# ================================
+opencode.json
+antigravity-accounts.json
+
+# ================================
+# MCP Local Builds
+# (Users clone these themselves per README instructions)
+# ================================
+mcp/
+
+# ================================
+# Generated / Cache Files
+# ================================
+node_modules/
+package.json
+bun.lock
+*.pyc
+__pycache__/
+.DS_Store
+
+# ================================
+# Logs & Temp
+# ================================
+*.log
+*.tmp
