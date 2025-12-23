@@ -9,105 +9,26 @@ Koleksi konfigurasi [OpenCode](https://opencode.ai) yang dioptimalkan untuk prod
 - **Deep Research**: Integrasi penuh dengan Exa AI dan Websets.
 - **Advanced Thinking & Reasoning**: Dilengkapi dengan 5 mesin pemikiran (Thinking Engines) untuk akurasi maksimal.
 
-### 🤖 Oh My OpenCode — The Core Plugin
-[Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode) adalah plugin yang mengubah OpenCode menjadi "coding on steroids". Plugin ini menyediakan:
+### 🤖 Agent Ecosystem: The Hybrid Team
+Konfigurasi ini menggabungkan dua framework agent terbaik untuk menciptakan ekosistem "Hybrid" di mana infrastruktur OMO mengelola pasukan spesialis dari OpenAgents.
 
-**Superpowers Mode:**
-- **Superpowers Activation**: Aktifkan mode koding tingkat tinggi dengan akses ke kumpulan skill dan agent terspesialisasi.
-- **`superpowers.js` (Local Plugin)**: Plugin khusus yang memberikan kemampuan "superpowers" pada agent. Plugin ini bekerja secara otomatis menyuntikkan instruksi ke setiap session baru.
-- **Workflow-driven AI**: Agent tidak hanya koding asal-asalan, tapi mengikuti metodologi engineer senior (TDD, Architecture Review, dll).
+#### 1. Oh My OpenCode (Sisyphus) — The Orchestrator
+[Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode) bertindak sebagai **CEO/Manager** yang mengelola infrastruktur:
+- **Sisyphus** (Claude Opus 4.5): Main orchestrator yang merencanakan dan mendelegasikan tugas.
+- **Oracle** (GPT 5.2): Ahli strategi arsitektur dan debugging berat.
+- **Librarian** (Claude Sonnet 4.5): Riset dokumentasi dan implementasi Open Source.
+- **Parallel Background Execution**: Menjalankan banyak agent sekaligus (misal: Frontend & Backend dikerjakan bersamaan).
 
-**Sisyphus Agent System:**
-- **Sisyphus** (Claude Opus 4.5): Main orchestrator agent dengan extended thinking
-- **Oracle** (GPT 5.2): Architecture, code review, strategy
-- **Librarian** (Claude Sonnet 4.5): Multi-repo analysis, doc lookup, implementation examples
-- **Explore** (Grok Code): Blazing fast codebase exploration
-- **Frontend UI/UX Engineer** (Gemini 3 Pro): UI/UX development
-- **Document Writer** (Gemini 3 Pro): Technical writing
-- **Multimodal Looker** (Gemini Flash): Visual content analysis
+#### 2. OpenAgents (Darren Hinde) — The Specialists
+[OpenAgents](https://github.com/darrenhinde/OpenAgents) menyediakan **100+ Agent Spesialis** yang dipanggil oleh Sisyphus sesuai kebutuhan:
+- **`nextjs-app-router-developer`**: Pakar Next.js 16+, RSC, dan Server Actions.
+- **`python-pro` / `go-pro`**: Ahli bahasa spesifik dengan pola best-practice.
+- **`security-auditor`**: Melakukan scan keamanan pada code sebelum ship.
+- **`ai-engineer`**: Membangun RAG, Vector DB, dan integrasi LLM.
 
-**Background Agents:**
-- Jalankan multiple agents secara paralel (misal: Gemini menulis frontend, Claude handle backend)
-- Massive parallel search sementara melanjutkan implementasi
+---
 
-**Enhanced Tools:**
-- Full LSP support (hover, goto definition, find references, rename, code actions)
-- AST-Grep untuk search/replace berbasis AST (25 bahasa)
-- Directory AGENTS.md/README.md injector
-- Conditional rules injector
-- Claude Code compatibility layer
-
-**Smart Hooks:**
-- Todo Continuation Enforcer: Memaksa agent menyelesaikan semua TODO
-- Comment Checker: Mencegah komentar berlebihan
-- Context Window Monitor: Manajemen context window
-- Think Mode: Auto-detect extended thinking
-- Session Recovery: Auto-recover dari error
-
-### 🧠 Advanced Thinking Engines
-1. **Sequential Thinking (Anthropic)**: Versi standar untuk memecahkan masalah secara berurutan, langkah demi langkah, guna menghindari jawaban yang dangkal.
-2. **Sequential Thinking Ultra (hyokunkwak)**: Versi "pro" dari Sequential Thinking dengan fitur-fitur canggih:
-   - *Quality Metrics*: Penilaian real-time (consistency, completeness, objectivity, practicality)
-   - *Bias Detection*: Deteksi 5 cognitive bias (confirmation, anchoring, availability, overconfidence, sunk cost)
-   - *Budget Management*: Mode efisiensi (fast/balanced/thorough/exhaustive)
-   - *Meta-Reasoning*: Checkpoint otomatis di 25%, 50%, 75% progress
-   - *Query Rewriting*: Otomatis memperbaiki kejelasan query sebelum diproses
-3. **MCP Reasoner (Jacck/frgmt0)**: Menggunakan algoritma *Beam Search* dan *Monte Carlo Tree Search (MCTS)* untuk mencoba berbagai jalur pemikiran di "belakang layar" sebelum memutuskan solusi paling logis. Mendukung integrasi dengan DeepSeek R1 via OpenRouter. Sangat kuat untuk logika koding rumit.
-4. **Clear Thought (Chirag Singhal)**: Framework komprehensif untuk problem-solving dengan berbagai pendekatan:
-   - *Mental Models*: First Principles, Rubber Duck Debugging, Occam's Razor, Pareto Principle
-   - *Design Patterns*: Modular Architecture, API Integration, State Management, Agentic Design
-   - *Programming Paradigms*: OOP, Functional, Reactive, Concurrent, Event-Driven
-   - *Debugging*: Binary Search, Divide and Conquer, Cause Elimination, Program Slicing
-   - *Advanced*: Scientific Method, Structured Argumentation, Visual Reasoning, Metacognitive Monitoring
-5. **Atom of Thoughts**: Fokus pada dekomposisi masalah ke unit terkecil (atomik), memastikan tidak ada detail teknis krusial yang terlewatkan.
-6. **Shannon Thinking**: Metodologi pemecahan masalah sistematis Claude Shannon (Problem Definition, Mathematical Modeling, Practical Implementation).
-
-## 📋 Prasyarat
-- [OpenCode](https://opencode.ai) terinstal.
-- Node.js (v18+) & npm.
-- Akun Google (untuk Antigravity).
-- API Keys untuk layanan remote (Exa, Context7, dll).
-
-## 📁 Struktur Konfigurasi
-
-OpenCode mendukung dua lokasi konfigurasi:
-
-| Lokasi | Path | Scope |
-|--------|------|-------|
-| **Global** | `~/.config/opencode/` | Berlaku untuk semua project |
-| **Lokal** | `[project]/.opencode/` | Berlaku hanya untuk project tertentu |
-
-**Cara pakai repo ini:**
-1. **Global Setup**: Clone/copy isi repo ini ke `~/.config/opencode/`
-2. **Lokal Setup**: Clone/copy isi repo ini ke folder `.opencode/` di dalam project kamu
-
-```
-# Contoh struktur Global
-~/.config/opencode/
-├── opencode.json              # Config utama (dari opencode.example.json)
-├── oh-my-opencode.json        # Config Oh My OpenCode
-├── agent/                     # Custom agents
-├── skills/                    # Custom skills
-├── command/                   # Custom commands (slash commands)
-├── plugin/                    # Custom plugins
-├── lib/                       # Library files untuk skills
-└── mcp/                       # MCP servers (clone manual)
-
-# Contoh struktur Lokal (per-project)
-my-project/
-├── .opencode/
-│   ├── opencode.json
-│   ├── oh-my-opencode.json
-│   ├── agent/
-│   ├── skills/
-│   ├── command/
-│   └── ...
-└── src/
-```
-
-> 💡 **Tips**: Tinggal copy-paste file-file dari repo ini, ikuti arahan di bawah, dan sesuaikan path. **Masih bingung? Tanya AI aja!** Paste link repo ini ke Claude/ChatGPT/Gemini dan minta bantuan setup.
-
-## 🚀 Panduan Instalasi
+### 🚀 Panduan Instalasi
 
 ### 1. Setup Dasar & Plugin
 Salin `opencode.example.json` menjadi `opencode.json` di folder konfigurasi OpenCode Anda:
@@ -116,36 +37,22 @@ mkdir -p ~/.config/opencode
 cp opencode.example.json ~/.config/opencode/opencode.json
 ```
 
-Instal plugin yang diperlukan:
+### 2. Instalasi OpenAgents (Spesialis)
+Untuk mendapatkan 100+ agent spesialis, jalankan installer OpenAgents:
 ```bash
-# Plugin akan otomatis terinstal saat OpenCode dijalankan jika sudah ada di opencode.json
-# Namun Anda bisa memastikannya dengan:
-npm install -g @ramtinj95/opencode-tokenscope
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s full
 ```
+*Agent-agent ini akan terinstall di folder `agent/` dan bisa dipanggil otomatis oleh Sisyphus.*
 
-### 2. Autentikasi Antigravity
+### 3. Autentikasi Antigravity
 Untuk menggunakan model-model Google/Claude High-End:
 1. Jalankan perintah login:
    ```bash
    opencode auth login
    ```
 2. Pilih **Google** -> **OAuth with Google (Antigravity)**.
-3. Tekan **Enter** saat diminta Project ID (opsional).
-4. Selesaikan proses login di browser.
-
-### 3. Setup Command `/tokenscope`
-Agar perintah `/tokenscope` berfungsi, buat file command:
-```bash
-mkdir -p ~/.config/opencode/command
-cat > ~/.config/opencode/command/tokenscope.md << 'EOF'
----
-description: Analyze token usage across the current session with detailed breakdowns by category
----
-
-Call the tokenscope tool directly without delegating to other agents.
-Then cat the token-usage-output.txt. DONT DO ANYTHING ELSE WITH THE OUTPUT.
-EOF
-```
+3. Selesaikan proses login di browser.
 
 ### 4. Instalasi MCP Lokal
 Jalankan perintah berikut di direktori `~/.config/opencode/mcp` untuk menyiapkan server MCP lokal:
@@ -171,22 +78,12 @@ git clone https://github.com/kbsooo/mcp-atom-of-thoughts.git atom-of-thoughts
 cd atom-of-thoughts && npm install && npm run build && cd ..
 ```
 
-## ⚙️ Konfigurasi Akhir
-Buka `~/.config/opencode/opencode.json` dan pastikan:
-1. **Path**: Sesuaikan `/YOUR_PATH_TO/` dengan path absolut ke folder `.config/opencode/mcp` Anda.
-2. **Env**: Set API Key di terminal Anda (atau tambahkan ke `~/.bashrc` / `~/.zshrc`):
-   ```bash
-   # Required
-   export EXA_API_KEY='your_key_here'
-   export CONTEXT7_API_KEY='your_key_here'
-   
-   # Opsional
-   export OPENROUTER_API_KEY='your_key_here'  # Untuk R1-Sonnet di MCP Reasoner
-   export REF_API_KEY='your_key_here'          # Untuk Ref MCP documentation search
-   ```
+---
+
+### ⚙️ Konfigurasi Akhir
 
 ### Konfigurasi Oh My OpenCode (`oh-my-opencode.json`)
-File `oh-my-opencode.json` mengatur perilaku plugin Oh My OpenCode. Letakkan di `~/.config/opencode/oh-my-opencode.json`:
+File ini mengatur model mana yang digunakan oleh agent utama Sisyphus. Sesuaikan di `~/.config/opencode/oh-my-opencode.json`:
 
 ```json
 {
@@ -194,35 +91,25 @@ File `oh-my-opencode.json` mengatur perilaku plugin Oh My OpenCode. Letakkan di 
   "google_auth": false,
   "agents": {
     "Sisyphus": { "model": "google/claude-opus-4-5-thinking" },
-    "librarian": { "model": "google/claude-sonnet-4-5" },
+    "librarian": { "model": "opencode/glm-4.7" },
     "oracle": { "model": "google/claude-opus-4-5-thinking" },
     "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-high" },
     "document-writer": { "model": "google/gemini-3-flash" },
-    "multimodal-looker": { "model": "google/gemini-3-flash" }
+    "multimodal-looker": { "model": "google/gemini-3-flash" },
+    "explore": { "model": "opencode/glm-4.7" }
   }
 }
 ```
 
-**Penjelasan:**
-- `google_auth: false`: Gunakan `opencode-antigravity-auth` plugin (direkomendasikan) untuk auth
-- `agents`: Override model untuk setiap agent sesuai kebutuhan
+---
 
-**Kustomisasi Agents (Opsional):**
-```json
-{
-  "agents": {
-    "explore": {
-      "model": "anthropic/claude-haiku-4-5",
-      "temperature": 0.5
-    },
-    "frontend-ui-ux-engineer": {
-      "disable": true
-    }
-  },
-  "disabled_hooks": ["comment-checker"],
-  "disabled_mcps": ["grep_app"]
-}
-```
+### 🎮 Workflow "Kuli Pro"
+1. **Start Session**: Pilih agent `Sisyphus` atau `openagent`.
+2. **Plan First**: Agent akan membuat rencana kerja sebelum mulai koding.
+3. **Automatic Delegation**: Sisyphus akan memanggil spesialis (misal `@ai-engineer`) jika tugasnya spesifik.
+4. **Superpowers Enforced**: Setiap agent dipaksa mengikuti SOP di folder `skills/` berkat plugin `superpowers.js`.
+5. **Background Work**: Kamu bisa minta agent ngerjain frontend di background sementara kamu diskusi arsitektur database.
+
 
 ## 🛠️ Daftar MCP & Plugin
 
